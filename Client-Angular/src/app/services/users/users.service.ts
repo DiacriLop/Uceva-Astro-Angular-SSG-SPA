@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from '../../interfaces/users.interface';
-import { USERS } from '../../data/users.interface';
+import { USERS } from '../../data/users.data';
 
 /**
  * Servicio encargado de la gestión de usuarios.

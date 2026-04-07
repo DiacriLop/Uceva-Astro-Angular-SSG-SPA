@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Product } from '../../interfaces/products.interface';
-import { PRODUCTS } from '../../data/products.interface';
+import { PRODUCTS } from '../../data/products.data';
 
 /**
  * Servicio encargado de la gestión de productos.
