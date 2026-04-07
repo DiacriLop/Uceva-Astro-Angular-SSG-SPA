@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { DatePage } from './pages/date/date.page';
 import { ProductsPage } from './pages/products/products.page';
 import { UsersPage } from './pages/users/users.page';
+import { CoursesPage } from './pages/courses/courses';
 
 /**
  * Definición de las rutas principales de la aplicación.
@@ -46,6 +47,15 @@ export const routes: Routes = [
    * de mostrar la fecha actual del sistema.
    */
   { path: 'date', component: DatePage },
+
+  /**
+   * Ruta de los cursos.
+   *
+   * @remarks
+   * Renderiza el componente `CoursesPage`, encargado
+   * de mostrar el listado de cursos.
+   */
+  { path: 'courses', component: CoursesPage },
 
   /**
    * Ruta comodín.
