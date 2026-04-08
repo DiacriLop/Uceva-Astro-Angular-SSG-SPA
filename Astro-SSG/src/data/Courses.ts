@@ -1,4 +1,4 @@
-import type { Course } from "@interfaces/courses";
+import type { Course } from "@interfaces/Courses";
 
 /**
  * Listado de cursos disponibles en el sistema.

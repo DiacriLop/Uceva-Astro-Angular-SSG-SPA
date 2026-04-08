@@ -1,4 +1,4 @@
-import type { Teacher } from "@interfaces/teachers";
+import type { Teacher } from "@interfaces/Teachers";
 
 /**
  * Listado de profesores disponibles en el sistema.

@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { DatePage } from './pages/date/date.page';
 import { ProductsPage } from './pages/products/products.page';
 import { UsersPage } from './pages/users/users.page';
-import { CoursesPage } from './pages/courses/courses';
+import { CoursesPage } from './pages/courses/courses.page';
 import { TeachersPage } from './pages/teachers/teachers.page';
 import { BuildingsPage } from './pages/buildings/buildings.page';
 
