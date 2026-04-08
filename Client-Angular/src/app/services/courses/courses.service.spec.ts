@@ -1,16 +1,27 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Courses } from './courses';
+import { CoursesService } from './courses.service';
+import { COURSES } from '../../data/courses.data';
 
-describe('Courses', () => {
-  let service: Courses;
+describe('CoursesService', () => {
+  let service: CoursesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Courses);
+    service = TestBed.inject(CoursesService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  describe('Creación del servicio', () => {
+
+it('debería crearse correctamente', () => {
+      expect(service).toBeTruthy();
+    });
+  it('getAllCourses debería retornar un observable con los cursos', (done) => {
+        service.getAllCourses().subscribe(courses => {
+          expect(courses).toEqual(COURSES);
+          expect(courses.length).toBe(COURSES.length);
+          done();
+        });
+      });
   });
 });
