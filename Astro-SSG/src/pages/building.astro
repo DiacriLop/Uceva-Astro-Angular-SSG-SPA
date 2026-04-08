@@ -1,0 +1,50 @@
+---
+import Badge from "@components/shared/Badge.astro";
+import { BUILDINGS } from "@data/Buildings";
+import type { BadgeType } from "@interfaces/Badge";
+import type { Building, BuildingType } from "@interfaces/Buildings";
+import MainLayout from "@layouts/MainLayout.astro";
+
+const buildings: Building[] = BUILDINGS;
+
+const categoryMap: Record<BuildingType, BadgeType> = {
+'Academico' : 'danger',
+      'Administrativo': 'warning',
+      'Laboratorio': 'primary',
+      'Biblioteca': 'success',
+      'Deportivo': 'info',
+};
+---
+<MainLayout>
+  <table class="table table-striped border">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Pisos</th>
+        <th scope="col">Capacidad</th>
+        <th scope="col">Año de Construcción</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Ascensor</th>
+      </tr>
+    </thead>
+    <tbody>
+      {buildings.map((building) => (
+        <tr>
+          <th scope="row">{building.id}</th>
+          <td>{building.name}</td>
+          <td>{building.floors}</td>
+          <td>{building.capacity}</td>
+          <td>{building.yearBuilt}</td>
+          <td>
+            <Badge
+              text={building.type}
+              type={categoryMap[building.type]}
+            />
+          </td>
+          <td>{building.hasElevator ? "Sí" : "No"}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</MainLayout>
