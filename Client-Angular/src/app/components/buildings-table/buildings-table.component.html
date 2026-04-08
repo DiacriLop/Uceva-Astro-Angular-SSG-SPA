@@ -1,0 +1,32 @@
+<table class="table table-striped border">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Pisos</th>
+			<th scope="col">Capacidad</th>
+            <th scope="col">Año de Construcción</th>
+			<th scope="col">Tipo</th>
+			<th scope="col">Ascensor</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (building of buildings; track building) {
+			<tr>
+				<th scope="row">{{ building.id }}</th>
+				<td>{{ building.name }}</td>
+				<td>{{ building.floors }}</td>
+				<td>{{ building.capacity }}</td>
+				<td>{{ building.yearBuilt }}</td>
+				<td>
+					<dsb-badge-atom
+						[text]="building.type"
+						[type]="categoryMap[building.type]" >
+                    </dsb-badge-atom>
+				</td>
+				<td>{{ building.hasElevator ? 'Sí' : 'No' }}</td>
+			</tr>
+		}
+	</tbody>
+</table>
+		

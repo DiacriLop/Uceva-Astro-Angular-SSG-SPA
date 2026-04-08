@@ -62,6 +62,7 @@ export class App {
       { text: 'Fecha', url: '/date' },
       { text: 'Cursos', url: '/courses' },
       { text: 'Profesores', url: '/teachers' },
+      { text: 'Edificios', url: '/buildings' },
     ]
   };
 }

@@ -4,6 +4,7 @@ import { ProductsPage } from './pages/products/products.page';
 import { UsersPage } from './pages/users/users.page';
 import { CoursesPage } from './pages/courses/courses';
 import { TeachersPage } from './pages/teachers/teachers.page';
+import { BuildingsPage } from './pages/buildings/buildings.page';
 
 /**
  * Definición de las rutas principales de la aplicación.
@@ -66,6 +67,15 @@ export const routes: Routes = [
    * de mostrar el listado de profesores.
    */
   { path: 'teachers', component: TeachersPage },
+
+    /**
+   * Ruta de los edificios.
+   *
+   * @remarks
+   * Renderiza el componente `BuildingsPage`, encargado
+   * de mostrar el listado de edificios.
+   */
+  { path: 'buildings', component: BuildingsPage },
 
   /**
    * Ruta comodín.
