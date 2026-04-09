@@ -7,7 +7,7 @@ import { BuildingsTableComponent } from '../../components/buildings-table/buildi
 import { of, throwError } from 'rxjs';
 import { BUILDINGS_MOCK } from '../../mocks/buildings.mocks';
 import { By } from '@angular/platform-browser';
-import { PRODUCTS_MOCK } from '../../mocks/products.mocks';
+
 
 describe('BuildingsPage', () => {
   let component: BuildingsPage;
@@ -16,15 +16,14 @@ describe('BuildingsPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BuildingsPage],
-      providers: [provideHttpClient(), BuildingsService]
+      imports: [BuildingsPage, BuildingsTableComponent],
+      providers: [provideHttpClient()]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(BuildingsPage);
     component = fixture.componentInstance;
     buildingsService = TestBed.inject(BuildingsService);
-    fixture.detectChanges();
   });
 
 it('debería crear el componente', () => {
