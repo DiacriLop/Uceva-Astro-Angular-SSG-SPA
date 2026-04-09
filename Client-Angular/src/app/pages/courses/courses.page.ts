@@ -17,7 +17,7 @@ import { AlertComponent } from '../../components/alert/alert.component';
  */
 @Component({
   selector: 'app-courses',
-  templateUrl: './courses.html',
+  templateUrl: './courses.page.html',
   imports: [CoursesTableComponent, AlertComponent],
 })
 export class CoursesPage {

@@ -5,50 +5,78 @@ import { BuildingsService } from '../../services/buildings/buildings.service';
 import { State } from '../../interfaces/state.interface';
 import { AlertComponent } from '../../components/alert/alert.component';
 
+/**
+ * Página encargada de mostrar el listado de edificios.
+ *
+ * @remarks
+ * Este componente se encarga de:
+ * - Obtener los edificios desde `BuildingsService`
+ * - Controlar el estado de carga de la página
+ * - Mostrar los datos en `BuildingsTableComponent`
+ *
+ * También gestiona los estados de la interfaz:
+ * - `init` → estado inicial
+ * - `loading` → cargando datos
+ * - `success` → datos cargados correctamente
+ * - `error` → ocurrió un error al cargar los datos
+ *
+ * @see BuildingsService
+ * @see BuildingsTableComponent
+ */
 @Component({
   selector: 'app-buildings',
   imports: [BuildingsTableComponent, AlertComponent],
   templateUrl: './buildings.page.html',
 })
 export class BuildingsPage {
+
   /**
-   * Listado de productos obtenidos desde el servicio.
+   * Listado de edificios obtenidos desde el servicio.
+   *
    * @type {Building[]}
    */
   buildings: Building[] = [];
-  /**
-     * Estado actual del componente.
-     *
-     * @default 'init'
-     */
-    state: State = 'init';
-  
 
   /**
-   * Servicio para obtener productos.
+   * Estado actual del componente.
+   *
    * @remarks
-   * Se inyecta utilizando la función `inject()` de Angular.
+   * Se utiliza para controlar la visualización de la interfaz
+   * dependiendo del proceso de carga de los datos.
+   *
+   * @default 'init'
+   */
+  state: State = 'init';
+
+  /**
+   * Servicio encargado de obtener los edificios.
+   *
+   * @remarks
+   * Se inyecta utilizando la función `inject()` de Angular
+   * en lugar de hacerlo mediante el constructor.
    */
   private buildingsService = inject(BuildingsService);
 
   /**
-   * Inicializa el componente y carga los edificios.
+   * Método del ciclo de vida que se ejecuta al inicializar el componente.
+   *
    * @remarks
-   * Se suscribe al método `getAllBuildings()` del servicio y
-   * asigna los datos recibidos a la propiedad `products`.
+   * Realiza la petición al servicio `getAllBuildings()` para obtener
+   * la lista de edificios y actualizar el estado del componente.
    */
   ngOnInit(): void {
     this.state = 'loading';
+
     this.buildingsService.getAllBuildings().subscribe({
       next: (buildings) => {
         this.buildings = buildings;
         this.state = 'success';
       },
       error: (error) => {
-        console.error(error)
+        console.error(error);
         this.state = 'error';
       },
-    })
+    });
   }
 
 }

@@ -3,22 +3,27 @@ import { Observable, of } from 'rxjs';
 import { Teacher } from '../../interfaces/teachers.interface';
 import { TEACHERS } from '../../data/teachers.data';
 
+/**
+ * Servicio encargado de gestionar la información de los profesores.
+ *
+ * @remarks
+ * Proporciona métodos para obtener datos relacionados con los profesores.
+ * Actualmente utiliza una fuente de datos local (`TEACHERS`) que simula
+ * una respuesta de backend mediante Observables.
+ *
+ * En una implementación real, este servicio podría consumir una API REST.
+ *
+ * @see Teacher
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class TeachersService {
+
   /**
-   * Obtiene una lista de profesores desde el backend.
+   * Obtiene el listado completo de profesores.
    *
-   * @param countTeachers Número de profesores a obtener.
    * @returns Observable que emite un array de profesores.
-   *
-   * @example
-   * ```ts
-   * this.teachersService.getAllTeachers().subscribe(teachers => {
-   *   console.log(teachers);
-   * });
-   * ```
    */
   getAllTeachers(): Observable<Teacher[]> {
     return of(TEACHERS);
