@@ -1,6 +1,6 @@
 import { Building } from "../interfaces/buildings.interface";
 
-export const BUILDING_MOCK: Building[] = [
+export const BUILDINGS_MOCK: Building[] = [
     {
         id: 1,
         name: 'Bloque A',

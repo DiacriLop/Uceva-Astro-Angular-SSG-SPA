@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Building } from '../../interfaces/buildings.interface';
-import { BUILDING } from '../../data/buildings.data';
+import { BUILDINGS } from '../../data/buildings.data';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,7 @@ export class BuildingsService {
      * ```
      */
     getAllBuildings(): Observable<Building[]> {
-      return of(BUILDING);
+      return of(BUILDINGS);
     }
   
 }

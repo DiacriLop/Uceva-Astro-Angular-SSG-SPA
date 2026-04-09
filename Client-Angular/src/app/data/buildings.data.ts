@@ -22,7 +22,7 @@ import { Building } from "../interfaces/buildings.interface";
  *
  * @type {Building[]}
  */
-export const BUILDING: Building[] = [
+export const BUILDINGS: Building[] = [
 {
     id: 1,
     name: 'Bloque A',
