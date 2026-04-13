@@ -46,13 +46,15 @@ const rows = fixture.debugElement.queryAll(By.css('tbody tr'));
 
       expect(columns[0].nativeElement.textContent.trim()).toBe(String(teacher.id));
       expect(columns[1].nativeElement.textContent.trim()).toBe(teacher.name);
-      expect(columns[2].nativeElement.textContent.trim()).toBe(teacher.email);
-      expect(columns[3].nativeElement.textContent.trim()).toBe(teacher.department);
+      expect(columns[2].nativeElement.textContent.trim()).toBe(teacher.lastName);
+      expect(columns[3].nativeElement.textContent.trim()).toBe(teacher.age.toString());
+      expect(columns[4].nativeElement.textContent.trim()).toBe(teacher.email);
+      expect(columns[5].nativeElement.textContent.trim()).toBe(teacher.department);
     });
   });
 
   it('debería mapear cada ingeniería a su BadgeType correcto', () => {
-    expect(component.departmentMap['Sistemas']).toBe('success');
+    expect(component. departmentMap['Sistemas']).toBe('success');
     expect(component.departmentMap['Electronica']).toBe('primary');
     expect(component.departmentMap['Industrial']).toBe('warning');
     expect(component.departmentMap['Matematicas']).toBe('danger');

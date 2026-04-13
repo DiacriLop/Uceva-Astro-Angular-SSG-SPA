@@ -34,7 +34,7 @@ it('debería renderizar una fila por cada curso', () => {
     const rows = fixture.debugElement.queryAll(By.css('tbody tr'));
     expect(rows.length).toBe(component.courses.length);
 });
-it('debería mostrar los datos del producto en cada columna', () => {
+it('debería mostrar los datos del curso en cada columna', () => {
     component.courses = COURSES_MOCK;
     fixture.detectChanges();
 
@@ -43,12 +43,13 @@ it('debería mostrar los datos del producto en cada columna', () => {
     rows.forEach((row, index) => {
       const columns = row.queryAll(By.css('th, td'));
       const course = component.courses[index];
-      const productPrice = new CurrencyPipe('en-US').transform(course.credits);
+  
 
       expect(columns[0].nativeElement.textContent.trim()).toBe(String(course.id));
       expect(columns[1].nativeElement.textContent.trim()).toBe(course.name);
-      expect(columns[2].nativeElement.textContent.trim()).toBe(productPrice);
-      expect(columns[3].nativeElement.textContent.trim()).toBe(course.category);
+      expect(columns[2].nativeElement.textContent.trim()).toBe(course.teacher);
+      expect(columns[3].nativeElement.textContent.trim()).toBe(course.credits.toString());
+      expect(columns[4].nativeElement.textContent.trim()).toBe(course.category);
     });
   });
 
